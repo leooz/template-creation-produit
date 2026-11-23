@@ -1,0 +1,55 @@
+# Contrat 3D <-> électronique. SEULE source de vérité pour les cotes.
+# Unités : millimètres. Origine : coin bas-gauche du PCB, face composants vers le haut (+Z).
+# Toute modification : noter la raison dans projet/decisions.md.
+
+[pcb]
+longueur = 60.0        # X
+largeur = 40.0         # Y
+epaisseur = 1.6
+hauteur_composants_dessus = 12.0   # composant le plus haut côté dessus
+hauteur_composants_dessous = 2.0   # soudures / composants côté dessous
+
+# Trous de fixation (centre, en mm depuis l'origine PCB)
+[[pcb.trous]]
+x = 4.0
+y = 4.0
+diametre = 3.2
+
+[[pcb.trous]]
+x = 56.0
+y = 4.0
+diametre = 3.2
+
+[[pcb.trous]]
+x = 4.0
+y = 36.0
+diametre = 3.2
+
+[[pcb.trous]]
+x = 56.0
+y = 36.0
+diametre = 3.2
+
+# Connecteurs qui doivent traverser le boîtier
+# face : "x-" | "x+" | "y-" | "y+"   — position du centre de l'ouverture
+[[connecteurs]]
+nom = "alim_DC"
+face = "x-"
+position = 20.0   # le long de la face (coordonnée Y pour x-/x+, X pour y-/y+)
+z = 4.0           # hauteur au-dessus de la face supérieure du PCB
+largeur = 10.0
+hauteur = 8.0
+
+[boitier]
+epaisseur_paroi = 2.0
+jeu_interne = 1.0          # espace entre PCB et parois
+hauteur_entretoises = 5.0  # PCB surélevé de cette hauteur
+diametre_entretoise = 6.0
+diametre_trou_vis = 2.5    # avant taraudage / vis auto-taraudeuse M3
+epaisseur_couvercle = 2.0
+hauteur_levre = 2.0        # lèvre du couvercle qui s'emboîte dans le fond
+tolerance_impression = 0.2 # jeu d'emboîtement
+
+[thermique]
+puissance_dissipee_w = 2.0   # estimation électronique
+aeration = true

@@ -1,0 +1,14 @@
+# Généré par scripts/verifier.sh
+exports/*
+!exports/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# KiCad
+elec/*-backups/
+elec/*.kicad_prl
+elec/fp-info-cache
+elec/*.lck
